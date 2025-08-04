@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   heading: {
-    fontSize: 22,
+    fontSize: 17,
     fontWeight: '700',
     marginBottom: 12,
     color: '#193052ff',
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 5,
+    paddingHorizontal: 4,
   },
   cardWrapper: {
     flex: 1,
