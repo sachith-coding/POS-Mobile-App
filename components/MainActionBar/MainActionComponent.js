@@ -8,7 +8,8 @@ export default function MainActionComponent({ onNewOrder, onAddItem }) {
       <Pressable style={styles.button} onPress={onNewOrder}>
         <Text style={styles.label}>New Order</Text>
       </Pressable>
-      <Pressable style={[styles.button, styles.leftSpacing]} onPress={onAddItem}>
+      <View style={{ width: 12 }} />
+      <Pressable style={styles.button} onPress={onAddItem}>
         <Text style={styles.label}>Add Item</Text>
       </Pressable>
     </View>
@@ -32,9 +33,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 6,
     paddingHorizontal: 10,
-  },
-  leftSpacing: {
-    marginLeft: 8,
   },
   label: {
     fontSize: 16,

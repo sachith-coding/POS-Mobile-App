@@ -22,6 +22,8 @@ export default function App() {
         <MainActionComponent   onNewOrder={() => { /* navigate or open new order */ }} onAddItem={() => { /* open add item UI */ }} />
         <SummaryCardNew />
       </SafeAreaView>
+
+      <View style={styles.verticalLine} />
     </View>
   );
 }
@@ -34,4 +36,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  verticalLine: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: '50%',
+    width: 1,
+    backgroundColor: 'gray',
+    zIndex: 999,
+  }, 
 });

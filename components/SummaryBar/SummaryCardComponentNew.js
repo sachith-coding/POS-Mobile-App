@@ -20,6 +20,7 @@ export default function SummaryCardNew({ onNewOrder, onAddItem }) {
         <View style={styles.button} onPress={onNewOrder}>
             <CardComponent title={data[0].title} description={data[0].description} iconName="money" />
         </View>
+        <View style={{ width: 12 }} />
         <View style={[styles.button, styles.leftSpacing]} onPress={onAddItem}>
             <CardComponent title={data[1].title} description={data[1].description} iconName="exchange"/>
         </View>
@@ -29,6 +30,7 @@ export default function SummaryCardNew({ onNewOrder, onAddItem }) {
         <View style={styles.button} onPress={onNewOrder}>
             <CardComponent title={data[2].title} description={data[2].description} iconName="archive" />
         </View>
+        <View style={{ width: 12 }} />
         <View style={[styles.button, styles.leftSpacing]} onPress={onAddItem}>
             <CardComponent title={data[3].title} description={data[3].description} iconName="credit-card" />
         </View>
@@ -51,9 +53,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 8,
     aspectRatio: 2,
-  },
-  leftSpacing: {
-    marginLeft: 16
   },
   heading: {
     fontSize: 15,
