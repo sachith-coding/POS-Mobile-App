@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 export default function StockCard({ image, name, price, width }) {
   return (
     <View style={[styles.card, { width }]}>
-      <Image source={{ uri: image }} style={styles.image} resizeMode="cover" />
+      <Image source={image} style={styles.image} resizeMode="cover" />
       <View style={styles.infoRow}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>${price}</Text>
@@ -16,7 +16,7 @@ export default function StockCard({ image, name, price, width }) {
 const styles = StyleSheet.create({
   card: {
     height: 140,
-    backgroundColor: '#fff',
+    backgroundColor: '#e6f1e5ff',
     borderRadius: 12,
     shadowColor: '#000',
     shadowOpacity: 0.1,

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions, ScrollView, Text, TextInput } from 'react-native';
 import StockCard from './StockCard';
+import appleImage from '../../assets/Fruits/apple.png';
+import bananaImage from '../../assets/Fruits/banana.png';
+import orangeImage from '../../assets/Fruits/orange.png';
+import grapesImage from '../../assets/Fruits/grapes.png';
+import mangoImage from '../../assets/Fruits/mango.png'; 
+import pineapppleImage from '../../assets/Fruits/pineapple.png';
+import watermelonImage from '../../assets/Fruits/watermelon.png';
 
 const screenWidth = Dimensions.get('window').width;
 const horizontalPadding = 16; // 8 left + 8 right
@@ -22,13 +29,13 @@ export default function AvailableStocks() {
   const [searchText, setSearchText] = useState('');
 
   const stockData = [
-    { id: 1, name: 'Apple', price: 2.5, image: 'https://picsum.photos/200?1' },
-    { id: 2, name: 'Banana', price: 1.2, image: 'https://picsum.photos/200?2' },
-    { id: 3, name: 'Orange', price: 1.8, image: 'https://picsum.photos/200?3' },
-    { id: 4, name: 'Grapes', price: 3.0, image: 'https://picsum.photos/200?4' },
-    { id: 5, name: 'Mango', price: 2.9, image: 'https://picsum.photos/200?5' },
-    { id: 6, name: 'Pineapple', price: 4.0, image: 'https://picsum.photos/200?6' },
-    { id: 7, name: 'Watermelon', price: 5.0, image: 'https://picsum.photos/200?7' },
+    { id: 1, name: 'Apple', price: 2.5, image: appleImage },
+    { id: 2, name: 'Banana', price: 1.2, image: bananaImage },
+    { id: 3, name: 'Orange', price: 1.8, image: orangeImage },
+    { id: 4, name: 'Grapes', price: 3.0, image: grapesImage },
+    { id: 5, name: 'Mango', price: 2.9, image: mangoImage },
+    { id: 6, name: 'Pineapple', price: 4.0, image: pineapppleImage },
+    { id: 7, name: 'Watermelon', price: 5.0, image: watermelonImage },
   ];
 
   // Filter stock items by search text (case-insensitive)
