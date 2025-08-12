@@ -42,12 +42,11 @@ export default function SummaryCardNew({ onNewOrder, onAddItem }) {
 
 const styles = StyleSheet.create({
   root: {
-    marginVertical: 10
+    marginVertical: 1
   },
   container: {
     flexDirection: 'row',
     paddingHorizontal: 18,
-    marginVertical: 2,
   },
   button: {
     flex: 1,

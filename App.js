@@ -4,6 +4,7 @@ import HeaderBar from './components/HeaderBar/HeaderBarComponent';
 import SummaryComponent from './components/SummaryBar/SummaryCardsComponent';
 import MainActionComponent from './components/MainActionBar/MainActionComponent';
 import SummaryCardNew from './components/SummaryBar/SummaryCardComponentNew';
+import AvailableStocks from './components/StocksBar/AvailableStocks';
 
 export default function App() {
 
@@ -21,9 +22,10 @@ export default function App() {
         <HeaderBar onDatePress={handleDatePress} onSettingsPress={handleSettingsPress} />
         <MainActionComponent   onNewOrder={() => { /* navigate or open new order */ }} onAddItem={() => { /* open add item UI */ }} />
         <SummaryCardNew />
+        <AvailableStocks />
       </SafeAreaView>
 
-      <View style={styles.verticalLine} />
+      {/* <View style={styles.verticalLine} /> */}
     </View>
   );
 }
