@@ -5,6 +5,7 @@ import SummaryComponent from './components/SummaryBar/SummaryCardsComponent';
 import MainActionComponent from './components/MainActionBar/MainActionComponent';
 import SummaryCardNew from './components/SummaryBar/SummaryCardComponentNew';
 import AvailableStocks from './components/StocksBar/AvailableStocks';
+import { LanguageProvider } from './shared/laguageContext';
 
 export default function App() {
 
@@ -17,16 +18,18 @@ export default function App() {
   };
 
   return (
-    <View style={styles.outerWrapper}>
-      <SafeAreaView style={styles.container}>
-        <HeaderBar onDatePress={handleDatePress} onSettingsPress={handleSettingsPress} />
-        <MainActionComponent   onNewOrder={() => { /* navigate or open new order */ }} onAddItem={() => { /* open add item UI */ }} />
-        <SummaryCardNew />
-        <AvailableStocks />
-      </SafeAreaView>
+    <LanguageProvider>
+      <View style={styles.outerWrapper}>
+        <SafeAreaView style={styles.container}>
+          <HeaderBar onDatePress={handleDatePress} onSettingsPress={handleSettingsPress} />
+          <MainActionComponent   onNewOrder={() => { /* navigate or open new order */ }} onAddItem={() => { /* open add item UI */ }} />
+          <SummaryCardNew />
+          <AvailableStocks />
+        </SafeAreaView>
 
-      {/* <View style={styles.verticalLine} /> */}
-    </View>
+        {/* <View style={styles.verticalLine} /> */}
+      </View>
+    </LanguageProvider>
   );
 }
 

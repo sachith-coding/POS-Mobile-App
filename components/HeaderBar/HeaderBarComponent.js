@@ -1,15 +1,23 @@
 // HeaderBar.js
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native';
 import DateFilterComponent from './DateFilterComponent';
 import SettingsComponent from './SettingsComponent';
+import { useTranslation } from '../../shared/laguageContext';
 
 export default function HeaderBar({ onDatePress, onSettingsPress }) {
+
+  const { language, setLanguage, t } = useTranslation();  // <<<< NEW
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'si' : 'en');
+  };
+
   return (
     <View style={styles.header}>
       {/* 1st column */}
       <View style={styles.col1}>
-        <Text style={styles.greeting}>Hi Sachi!</Text>
+        <Text>{t('greeting')}</Text> {/* <<<< NEW */}
       </View>
 
       {/* 2nd column */}
@@ -17,9 +25,18 @@ export default function HeaderBar({ onDatePress, onSettingsPress }) {
         <DateFilterComponent label="August - 03" onPress={onDatePress} />
       </View>
 
-      {/* 3rd column */}
+      {/* 3rd column
       <View style={styles.col3}>
         <SettingsComponent onPress={onSettingsPress} />
+      </View> */}
+
+      {/* 4th column: language toggle button */}
+      <View style={styles.col4}>
+        <Pressable onPress={toggleLanguage} style={styles.langButton}>
+          <Text style={styles.langButtonText}>
+            {language === 'en' ? 'To සිංහල' : 'To English'}
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -43,15 +60,32 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 }, // iOS shadow
   },
   col1: {
-    width: '35%',
+    width: '30%',
   },
   col2: {
-    width: '55%',
-    alignItems: 'center',
+    width: '40%',
+    alignItems: 'flex-end',
   },
   col3: {
     width: '10%',
     alignItems: 'flex-end',
+  },
+  col4: {            // <<<< NEW: for language toggle
+    flex: 2,
+    alignItems: 'flex-end',
+    width: '30%'
+  },
+  langButton: {
+    paddingLeft: 14,
+    paddingRight: 14,
+    paddingTop: 6,
+    paddingBottom: 6,
+    backgroundColor: '#007AFF',
+    borderRadius: 6,
+  },
+  langButtonText: {
+    color: '#fff',
+    fontWeight: '600',
   },
   greeting: {
     color: '#2C3E50	',

@@ -1,16 +1,20 @@
 // components/MainAction/MainActionComponent.jsx
 import React from 'react';
 import { View, Pressable, Text, StyleSheet } from 'react-native';
+import { useTranslation } from '../../shared/laguageContext';
 
 export default function MainActionComponent({ onNewOrder, onAddItem }) {
+
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <Pressable style={styles.button} onPress={onNewOrder}>
-        <Text style={styles.label}>New Order</Text>
+        <Text style={styles.label}>{t('newOrder')}</Text>
       </Pressable>
       <View style={{ width: 12 }} />
       <Pressable style={styles.button} onPress={onAddItem}>
-        <Text style={styles.label}>Add Item</Text>
+        <Text style={styles.label}>{t('addItem')}</Text>
       </Pressable>
     </View>
   );
