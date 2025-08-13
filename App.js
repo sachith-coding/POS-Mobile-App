@@ -1,14 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import HeaderBar from './components/HeaderBar/HeaderBarComponent';
-import SummaryComponent from './components/SummaryBar/SummaryCardsComponent';
-import MainActionComponent from './components/MainActionBar/MainActionComponent';
 import SummaryCardNew from './components/SummaryBar/SummaryCardComponentNew';
+import MainActionComponent from './components/MainActionBar/MainActionComponent';
 import AvailableStocks from './components/StocksBar/AvailableStocks';
+import AddItemScreen from './Screens/MainActionComponentThrough/AddItemScreen';
+import NewOrderScreen from './Screens/MainActionComponentThrough/NewOrderScreen';
 import { LanguageProvider } from './shared/laguageContext';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
 
+function HomeScreen({ navigation }) {
   const handleDatePress = () => {
     alert('DateFilter to be opened');
   };
@@ -18,17 +23,32 @@ export default function App() {
   };
 
   return (
-    <LanguageProvider>
-      <View style={styles.outerWrapper}>
-        <SafeAreaView style={styles.container}>
-          <HeaderBar onDatePress={handleDatePress} onSettingsPress={handleSettingsPress} />
-          <MainActionComponent   onNewOrder={() => { /* navigate or open new order */ }} onAddItem={() => { /* open add item UI */ }} />
-          <SummaryCardNew />
-          <AvailableStocks />
-        </SafeAreaView>
+    <View style={styles.outerWrapper}>
+      <SafeAreaView style={styles.container}>
+        <HeaderBar onDatePress={handleDatePress} onSettingsPress={handleSettingsPress} />
+        <MainActionComponent
+          onNewOrder={() => navigation.navigate('NewOrder')}
+          onAddItem={() => navigation.navigate('AddItem')}
+        />
+        <SummaryCardNew />
+        <AvailableStocks />
+      </SafeAreaView>
 
-        {/* <View style={styles.verticalLine} /> */}
-      </View>
+      <View style={styles.verticalLine} />
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="AddItem" component={AddItemScreen} options={{ title: 'Add Item' }} />
+          <Stack.Screen name="NewOrder" component={NewOrderScreen} options={{ title: 'New Order' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </LanguageProvider>
   );
 }
@@ -49,5 +69,5 @@ const styles = StyleSheet.create({
     width: 1,
     backgroundColor: 'gray',
     zIndex: 999,
-  }, 
+  },
 });

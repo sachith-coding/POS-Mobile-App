@@ -42,7 +42,8 @@ export default function SummaryCardNew({ onNewOrder, onAddItem }) {
 
 const styles = StyleSheet.create({
   root: {
-    marginVertical: 1
+    marginVertical: 15,
+    marginBottom: 0,
   },
   container: {
     flexDirection: 'row',
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     aspectRatio: 2,
   },
   heading: {
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: '700',
     marginBottom: 12,
     color: '#193052ff',

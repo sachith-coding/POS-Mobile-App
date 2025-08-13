@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 export default function CardComponent({ title, description, iconName }) {
   return (
     <LinearGradient
-      colors={['#60dc7dff', '#ecf7f0ff']} // light green to light gray
+      colors={['#b2b1f1ff', '#ecf7f0ff']} // light green to light gray
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.card}

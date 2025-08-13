@@ -81,7 +81,7 @@ export default function AvailableStocks() {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: horizontalPadding / 2,
-    marginTop: 1,
+    marginTop: 15,
   },
   headingSearchRow: {
     flexDirection: 'row',
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     marginLeft: horizontalPadding / 2 + cardMarginHorizontal / 2,
   },
   heading: {
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: '700',
     flex: 1,
   },
