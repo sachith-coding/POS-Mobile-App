@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { useEffect, useRef } from 'react';
 import { StyleSheet, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -10,6 +11,8 @@ import AvailableStocks from './components/StocksBar/AvailableStocks';
 import AddItemScreen from './Screens/MainActionComponentThrough/AddItemScreen';
 import NewOrderScreen from './Screens/MainActionComponentThrough/NewOrderScreen';
 import { LanguageProvider } from './shared/laguageContext';
+
+import { initDB } from './Database/database';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,12 +37,16 @@ function HomeScreen({ navigation }) {
         <AvailableStocks />
       </SafeAreaView>
 
-      <View style={styles.verticalLine} />
     </View>
   );
 }
 
 export default function App() {
+
+    useEffect(() => {
+    initDB(); // create table at startup
+  }, []);
+
   return (
     <LanguageProvider>
       <NavigationContainer>

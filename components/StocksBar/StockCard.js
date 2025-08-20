@@ -16,7 +16,7 @@ export default function StockCard({ image, name, price, width }) {
 const styles = StyleSheet.create({
   card: {
     height: 140,
-    backgroundColor: '#e6f1e5ff',
+    backgroundColor: '#e4eaf7ff',
     borderRadius: 12,
     shadowColor: '#000',
     shadowOpacity: 0.1,

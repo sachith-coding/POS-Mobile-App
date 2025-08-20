@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Pressable, Image, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { insertItem } from '../../Database/database';
 
-export default function AddItemScreen() {
+export default function AddItemScreen({navigation}) {
   const [itemName, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -22,9 +23,33 @@ export default function AddItemScreen() {
     }
   };
 
-  const handleAdd = () => {
-    console.log({ itemName, description, price, units, image });
-    // Later: Save to SQLite
+  const handleAdd = async () => {
+
+      if (!itemName || !price || !units) {
+        alert('Please fill in Item Name, Price, and Units');
+        return;
+      }
+
+      try {
+        await insertItem({
+          name: itemName,
+          description,
+          price: parseFloat(price),
+          units: parseInt(units),
+          image, // local URI from gallery
+        });
+
+        alert('Item added successfully ✅');
+        handleClear();
+        navigation.navigate('Home');
+      } 
+      catch (error) {
+          console.log('Error adding item:', error);
+          alert('Failed to add item');
+      }
+
+      console.log({ itemName, description, price, units, image });
+      // Later: Save to SQLite
   };
 
   const handleClear = () => {
